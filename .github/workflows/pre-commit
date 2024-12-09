@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Run tests
+npm test
+
+# Capture the exit status of the tests
+TEST_RESULT=$?
+
+# Check if any tests failed
+if [ $TEST_RESULT -ne 0 ]; then
+  echo "Tests failed. Commit aborted."
+  exit 1
+else
+  echo "All tests passed. Proceeding with commit."
+fi
